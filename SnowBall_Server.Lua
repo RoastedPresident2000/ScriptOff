@@ -42,14 +42,14 @@ RemoteEvent.OnServerEvent:Connect(function(plr,MyMouse)
 		
 	end)	
 	--// Snowball projectile calculation 
-	local K = 1
-	local g = Vector3.new(0, -workspace.Gravity/4,0)
-	local x0 = MyHumanoidRootPart.CFrame * Vector3.new(0,2,-2)	
-	local v0 = (MyMouse - x0 - 0.5*g*K*K)/K
+	local Kep = 1
+	local GVector = Vector3.new(0, -workspace.Gravity/4,0)
+	local Donald = MyHumanoidRootPart.CFrame * Vector3.new(0,2,-2)	
+	local Obama = (MyMouse - Donald - 0.5*GVector*Kep*Kep)/Kep
 	
-	local nt = 0
-	while (nt <K*2)and TouchedSnowball do
-		SnowBall.CFrame = CFrame.new(0.5*g*nt*nt + v0*nt + x0)
-		nt = nt + RunService.Heartbeat:Wait()
+	local PooTimer = 0
+	while (PooTimer <Kep*2)and TouchedSnowball do
+		SnowBall.CFrame = CFrame.new(0.5*GVector*PooTimer*PooTimer + Obama*PooTimer + Donald)
+		PooTimer = PooTimer + RunService.Heartbeat:Wait()
 	end	
 end)
