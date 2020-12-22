@@ -9,10 +9,11 @@ local RunService = game:GetService('RunService')
 local CountText = script.Parent.Time
 --//Manage Countdown Until Christmas
 RunService.Heartbeat:Connect(function()
-	local epoch = 1608786000
-	local diff = epoch - os.time()
-	local count = os.date("*t", diff)
-	local FormattedCountDown = string.format("%02i", count.day)..":"..string.format("%02i", count.hour)..":"..string.format("%02i", count.min)..":"..string.format("%02i", count.sec)
+	local SecondsUntilChristmas = 1608786000
+	local TimeDifference = SecondsUntilChristmas - os.time()
+	local ClockedTime = os.date("*t", TimeDifference)
+	--//Lets format the Time into the countdown string
+	local FormattedCountDown = string.format("%02i", ClockedTime.day)..":"..string.format("%02i", ClockedTime.hour)..":"..string.format("%02i", ClockedTime.min)..":"..string.format("%02i", ClockedTime.sec)
 	--//Update Text if ~= current timer
 	if CountText.Text ~= FormattedCountDown then
 		--// Is it christmas already or passed christmas?
